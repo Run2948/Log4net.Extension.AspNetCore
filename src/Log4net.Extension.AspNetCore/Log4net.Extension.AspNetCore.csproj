@@ -4,7 +4,7 @@
     <Description>Lightweight Logging Extension implementation of log4net</Description>
     <VersionPrefix>1.0.0</VersionPrefix>
     <Authors>Run2948</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp1.1;netcoreapp2.0;netcoreapp2.1;netcoreapp2.2;netcoreapp3.0;netcoreapp3.1;netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <LangVersion>8</LangVersion>
     <PackageId>Log4net.Extension.AspNetCore</PackageId>
     <PackageTags>log4net Lightweight Logging Extension AspNetCore</PackageTags>
@@ -16,9 +16,10 @@
     <NeutralLanguage></NeutralLanguage>
     <PackageIcon>icon.png</PackageIcon>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>Add multi-version support</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

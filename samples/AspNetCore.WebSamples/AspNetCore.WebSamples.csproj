@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Log4net.Extension.AspNetCore\Log4net.Extension.AspNetCore.csproj" />
+    <!-- <ProjectReference Include="..\..\src\Log4net.Extension.AspNetCore\Log4net.Extension.AspNetCore.csproj" /> -->
+    <PackageReference Include="Log4net.Extension.AspNetCore" Version="1.0.0" />
   </ItemGroup>
-
 
 </Project>
