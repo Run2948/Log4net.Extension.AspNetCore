@@ -76,6 +76,22 @@ public class Startup
 </configuration>
 ```
 
+* Add a global ExceptionFilter:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    //...
+
+    services.AddControllers(options =>
+    {
+        options.Filters.Add<ExceptionFilter>();
+    });
+
+    //...
+}
+```
+
 * `appsettings.json`
 
 ```json
@@ -133,3 +149,53 @@ public class Startup
     }
 }
 ```
+
+### Global Exception Filter
+
+```csharp
+public class ExceptionFilter : IExceptionFilter
+{
+    private readonly ILogger<ExceptionFilter> _logger;
+    public ExceptionFilter(ILogger<ExceptionFilter> logger)
+    {
+        _logger = logger;
+    }
+
+    public void OnException(ExceptionContext filterContext)
+    {
+        var log = new StringBuilder();
+
+        //log the url
+        if (filterContext.HttpContext.Request.GetDisplayUrl() != null)
+            log.AppendLine(filterContext.HttpContext.Request.GetDisplayUrl());
+
+        log.AppendLine($"\tIP: {filterContext.HttpContext.Connection.RemoteIpAddress}");
+
+        foreach (var key in filterContext.HttpContext.Request.Headers.Keys)
+        {
+            log.AppendLine($"\t{key}: {filterContext.HttpContext.Request.Headers[key]}");
+        }
+
+        var exception = filterContext.Exception;
+        log.AppendLine("\tError Message:" + exception.Message);
+        if (exception.InnerException != null)
+        {
+            PrintInnerException(exception.InnerException, log);
+        }
+        log.AppendLine("\tError HelpLink:" + exception.HelpLink);
+        log.AppendLine("\tError StackTrace:" + exception.StackTrace);
+
+        _logger.LogError(log.ToString());
+    }
+
+    private void PrintInnerException(Exception ex, StringBuilder log)
+    {
+        log.AppendLine("\tError InnerMessage:" + ex.Message);
+        if (ex.InnerException != null)
+        {
+            PrintInnerException(ex.InnerException, log);
+        }
+    }
+}
+```
+
