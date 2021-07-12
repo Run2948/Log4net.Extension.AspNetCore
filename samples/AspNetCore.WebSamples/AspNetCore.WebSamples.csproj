@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- <ProjectReference Include="..\..\src\Log4net.Extension.AspNetCore\Log4net.Extension.AspNetCore.csproj" /> -->
-    <PackageReference Include="Log4net.Extension.AspNetCore" Version="1.0.0" />
+    <PackageReference Include="Log4net.Extension.AspNetCore" Version="1.0.3" />
   </ItemGroup>
 
 </Project>

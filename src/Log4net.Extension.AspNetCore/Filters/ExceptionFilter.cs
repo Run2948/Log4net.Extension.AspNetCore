@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-namespace AspNetCore.WebSamples.Filters
+namespace Microsoft.AspNetCore.Mvc.Filters
 {
     public class ExceptionFilter : IExceptionFilter
     {
         private readonly ILogger<ExceptionFilter> _logger;
         public ExceptionFilter(ILogger<ExceptionFilter> logger)
-        {
+        { 
             _logger = logger;
         }
 

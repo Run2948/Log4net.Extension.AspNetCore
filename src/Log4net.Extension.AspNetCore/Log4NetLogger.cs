@@ -5,9 +5,8 @@ using System.Text;
 using System.Xml;
 using log4net;
 using log4net.Config;
-using Microsoft.Extensions.Logging;
 
-namespace Log4net.Extension.AspNetCore
+namespace Microsoft.Extensions.Logging
 {
     public class Log4NetLogger : ILogger
     {
